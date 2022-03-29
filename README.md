@@ -6,9 +6,7 @@ Hello and welcome to MacSwap!<br>
 MacSwap is a light, simple, "peer-to-peer" software on premise for swapping your own stuff with others.<br>
 	   
 MacSwap is released under GPLv3 license, it is supplied AS-IS and we do not take any responsibility for its misusage.<br>
-	   
-MacSwap got built behind some cool features like the cube interface, object drag-n-drop between browser windows, full object serialization and xml.<br>
-         
+
 First step, use the left side panel password and salt fields to create the hash to insert in the config file. Remember to manually set there also the salt value.<br>
 	   
 As you are going to run MacSwap in the PHP process context, using a limited web server or phpfpm user, you must follow some simple directives for an optimal first setup:<br>
