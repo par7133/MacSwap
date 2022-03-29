@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<details>
+  <detail face="swap">
+    <name></name>
+    <description></description>
+    <value></value>
+    <city></city> 
+    <country></country> 
+  </detail>
+  <detail face="contacts">
+    <tel></tel>
+    <cell></cell>
+    <email></email>
+  </detail>  
+  <detail face="other info">
+    <business-type></business-type>
+    <guid></guid>
+  </detail>  
+  <detail face="password">
+    <password></password>
+  </detail>
+</details>

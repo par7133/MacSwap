@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * Copyright 2021, 2024 5 Mode
+ *
+ * This file is part of MacSwap.
+ *
+ * MacSwap is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * MacSwap is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.  
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with MacSwap. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * config.inc
+ * 
+ * MacSwap configuration settings.
+ *
+ * @author Daniele Bonini <my25mb@aol.com>
+ * @copyrights (c) 2021, 2024, 5 Mode     
+ */
+
+define('DEBUG', true);
+ 
+define('APP_NAME', "MacSwap");
+
+// password: 
+// salt: 
+define('APP_HASH', "");
+
+define('APP_SPLASH', true);
+
+define('APP_HOST', "YourMacSwap-site.com");
+define('APP_PATH', "/var/www/YourWebApp/Public");
+define('APP_SCRIPT_PATH', "/var/www/YourWebApp/Private/scripts");
+define('APP_AJAX_PATH', "/var/www/YourWebApp/Private/scripts_ajax");
+define('APP_ERROR_PATH', "/var/www/YourWebApp/Private/error");
+define('APP_SALT', "yoursalt");
+define('APP_TEMPLATE_PATH', "/var/www/YourWebApp/Private/Private/templates");
+define('APP_DATA_PATH', "/var/www/YourWebApp/Private/data");
+
+// Default Locale, in two letters format
+define('APP_LOCALE', "EN");
+define('APP_MAX_BURGERS', 10);
+
+define('BUSINESS_TYPE', "Burger");
+define('BUSINESS_CITY', "Bologna");
+define('BUSINESS_COUNTRY', "Italy");
+
+define('EDITOR_PASSWORD', "");
+
+$CONFIG = [
+
+   'DEBUG' => true,
+
+   'APP' => [
+      'NAME' => "MacSwap",
+      // password: 
+      // salt:  
+      'HASH' => "",
+      'SPLASH' => true,
+      'HOST' => "YourMacSwap-site.com", 
+      'PATH' => "/var/www/YourWebApp/Public",
+      'SCRIPT_PATH' => "/var/www/YourWebApp/Private/scripts",
+      'AJAX_PATH' => "/var/www/YourWebApp/Private/scripts_ajax",
+      'ERROR_PATH' => "/var/www/YourWebApp/Private/error",
+      'SALT' => "yoursalt",
+      'TEMPLATE_PATH' => "/var/www/YourWebApp/Private/templates", 
+      'DATA_PATH' => "/var/www/YourWebApp/Private/data",
+      // Default Locale, in two letters format
+      'LOCALE' => "EN",
+      'MAX_BURGERS' => 10 
+      ],
+    
+   'BUSINESS' => [
+      'TYPE' => "Sushi",
+      'CITY' => "Bologna",
+      'COUNTRY' => "Italy"
+      ],
+    
+   'EDITOR' => [
+      'PASSWORD' => ""  
+      ]
+    
+ ];  
+
