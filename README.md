@@ -1,15 +1,15 @@
 # MacSwap
 Swapping everything but burgers. On premise solution - GPL License
 
-Hello and welcome to MacSwap!<br><br>
+Hello and welcome to MacSwap!<br>
 	   
-MacSwap is a light, simple, "peer-to-peer" software on premise for swapping your own stuff with others.<br><br>
+MacSwap is a light, simple, "peer-to-peer" software on premise for swapping your own stuff with others.<br>
 	   
-MacSwap is released under GPLv3 license, it is supplied AS-IS and we do not take any responsibility for its misusage.<br><br>
+MacSwap is released under GPLv3 license, it is supplied AS-IS and we do not take any responsibility for its misusage.<br>
 	   
-MacSwap got built behind some cool features like the cube interface, object drag-n-drop between browser windows, full object serialization and xml.<br><br>
+MacSwap got built behind some cool features like the cube interface, object drag-n-drop between browser windows, full object serialization and xml.<br>
          
-First step, use the left side panel password and salt fields to create the hash to insert in the config file. Remember to manually set there also the salt value.<br><br>
+First step, use the left side panel password and salt fields to create the hash to insert in the config file. Remember to manually set there also the salt value.<br>
 	   
 As you are going to run MacSwap in the PHP process context, using a limited web server or phpfpm user, you must follow some simple directives for an optimal first setup:<br>
 <ol>
@@ -17,10 +17,8 @@ As you are going to run MacSwap in the PHP process context, using a limited web 
   <li>Set the default Business Type, City and Country of the stuff your are going to swap.</li>
   <li>Set the MAX_BURGERS value stating the max number of burger the pp is going to manage.</li>
   <li>Set the Editor Password of your burgers. This will be important to confirm your burger upload by dropping it and saving it.</li>
-	<li>In Public/js/cube-code.js, in mystart class method, check if you are using 'http' or 'https'.</li>	   
+  <li>In Public/js/cube-code.js, in mystart class method, check if you are using 'http' or 'https'.</li>	   
 </ol>
-	   
-<br>	
-     
+	        
 Hope you can enjoy it and let us know about any feedback: <a href="mailto:info@macswap.org" style="color:#e6d236;">info@macswap.org</a>
 	   
