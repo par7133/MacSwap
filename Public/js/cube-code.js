@@ -358,7 +358,7 @@ function myCube(myname, myformalName, myAPP_HOST) {
     bConnectionOK = false;
     var xhttp = new XMLHttpRequest();
     //alert(this.formalName);
-    var xmluri = "http://" + myAPP_HOST + "/getxml?f=" + this.formalName;
+    var xmluri = "https://" + myAPP_HOST + "/getxml?f=" + this.formalName;
     //alert(xmluri);
     xhttp.open("GET", xmluri, true);  
     xhttp.send();
