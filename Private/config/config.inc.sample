@@ -53,6 +53,8 @@ define('BUSINESS_TYPE', "Burger");
 define('BUSINESS_CITY', "Bologna");
 define('BUSINESS_COUNTRY', "Italy");
 
+// sha256 password
+// pw: password
 define('EDITOR_PASSWORD', "");
 
 $CONFIG = [
@@ -85,6 +87,8 @@ $CONFIG = [
       ],
     
    'EDITOR' => [
+      // sha256 password
+      // pw: password
       'PASSWORD' => ""  
       ]
     
