@@ -1,11 +1,13 @@
 # MacSwap
-Swapping everything but burgers. On premise solution - GPL License
+Swapping everything but burgers. A p2p solution, by drag-n-drop - GPL License
 
 Hello and welcome to MacSwap!<br>
 	   
-MacSwap is a light, simple, "peer-to-peer" software on premise for swapping your own stuff with others.<br>
+MacSwap is a light, simple, "peer-to-peer" software for swapping your own stuff with others, by drag-n-drop.<br>
 	   
 MacSwap is released under GPLv3 license, it is supplied AS-IS and we do not take any responsibility for its misusage.<br>
+
+MacSwap got built behind some cool features like object drag-n-drop between browser windows, full object serialization and xml.
 
 First step, use the left side panel password and salt fields to create the hash to insert in the config file. Remember to manually set there also the salt value.<br>
 	   
