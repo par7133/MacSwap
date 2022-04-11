@@ -39,7 +39,10 @@ if (!file_exists(APP_DATA_PATH)) {
 }	
 if (!file_exists(APP_TEMPLATE_PATH)) {
   die("Template folder doesn't exist. You must have a tempate folder in your web app private path and configure it properly inside the config file.");
-}	
+}
+if (EDITOR_PASSWORD === "" || (strlen(EDITOR_PASSWORD) < 64)) {
+  die("Editor hashed password must be set (with a 64 chars min length). You must generate an editor password and configure it properly inside the config file.");
+}  
 if (!file_exists(APP_DATA_PATH . "/burger001-s.xml")) {
   // Generating data from the template..
 
@@ -68,9 +71,6 @@ if (!file_exists(APP_DATA_PATH . "/burger001-s.xml")) {
       $xmlStr = file_put_contents(APP_DATA_PATH . "/" . $baseName . ".xml", $xmlStr);
     }  
   }  
-}  
-if (EDITOR_PASSWORD === "" || (strlen(EDITOR_PASSWORD) < 6)) {
-  die("Editor password must be set (with a 6 chars min length). You must generate an editor password and configure it properly inside the config file.");
 }  
 
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "const.inc";
