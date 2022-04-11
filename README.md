@@ -1,5 +1,5 @@
 # MacSwap
-Swapping everything like burgers? Your p2p solution, by drag-n-drop - GPL License
+Swapping everything like burgers? Your p2p, drag-n-drop solution - GPL License
 
 Hello and welcome to MacSwap!<br>
 	   
