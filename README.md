@@ -22,3 +22,6 @@ As you are going to run MacSwap in the PHP process context, using a limited web 
 	        
 Hope you can enjoy it and let us know about any feedback: <a href="mailto:info@macswap.org" style="color:#e6d236;">info@macswap.org</a>
 	   
+###Screenshots:
+
+ ![MacSwap in action](/Public/res/Screenshot1.jpg)<br>
