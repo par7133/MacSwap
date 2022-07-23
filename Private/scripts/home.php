@@ -700,7 +700,7 @@ if ($password !== PHP_STR) {
          <video id="vplayer" loop="1">
             <source src="../res/macswap.mp4" type="video/mp4">
          </video>
-         <div style="margin-bottom:80px;"><H3>Swapping everything but burgers..</H3></div><br><br>
+         <div style="margin-bottom:80px;"><H3>&nbsp;</H3></div><br><br>
      </div>
      
       <form id="frmHC" method="POST" action="/" target="_self" enctype="multipart/form-data">
