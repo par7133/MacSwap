@@ -19,7 +19,9 @@ As you are going to run MacSwap in the PHP process context, using a limited web 
   <li>Set the Editor Password of your burgers. This will be important to confirm your burger upload by dropping it and saving it.</li>
   <li>In Public/js/cube-code.js, in mystart class method, check if you are using 'http' or 'https'.</li>	   
 </ol>
-	        
+
+<b>Attention:</b> version 1.1.5 > is not retrocompatible.  
+
 Hope you can enjoy it and let us know about any feedback: <a href="mailto:my25mb@aol.com" style="color:#e6d236;">my25mb@aol.com</a>
 	   
 ###Screenshots:
