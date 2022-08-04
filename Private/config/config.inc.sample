@@ -29,6 +29,7 @@
 define('DEBUG', true);
  
 define('APP_NAME', "MacSwap");
+define('APP_TITLE', "MacSwap, swapping everything but burgers..");
 
 // password: 
 // salt: 
@@ -63,6 +64,7 @@ $CONFIG = [
 
    'APP' => [
       'NAME' => "MacSwap",
+      'TITLE' => "MacSwap, swapping everything but burgers..",   
       // password: 
       // salt:  
       'HASH' => "",
