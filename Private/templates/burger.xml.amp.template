@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <details>
-  <detail face="swap">
+  <detail1 face="swap">
     <name></name>
     <description></description>
+    <price></price>
     <value></value>
     <city></city> 
     <country></country> 
-  </detail>
-  <detail face="contacts">
+  </detail1>
+  <detail2 face="contacts">
     <tel></tel>
     <cell></cell>
     <email></email>
-  </detail>  
-  <detail face="other info">
+  </detail2>  
+  <detail3 face="other info">
     <business-type></business-type>
     <guid></guid>
-  </detail>  
-  <detail face="password">
+  </detail3>  
+  <detail4 face="password">
     <password></password>
-  </detail>
+  </detail4>
 </details>
