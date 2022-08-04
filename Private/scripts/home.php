@@ -79,7 +79,7 @@ if ($password !== PHP_STR) {
  -->
   
     
-  <title>MacSwap: Swapping everything but burgers..</title>
+  <title><?PHP echo(APP_TITLE);?></title>
 	
   <link rel="shortcut icon" href="/favicon.ico?v=<?php echo(time()); ?>" />
     
@@ -230,32 +230,6 @@ if ($password !== PHP_STR) {
   }
 
   /*
-  function eachNode(rootNode, callback) {
-    if (!callback) {
-      const nodes = []
-      eachNode(rootNode, function(node) {
-        nodes.push(node.nodeName)
-        //nodes.push(node)
-      })
-      return nodes
-    }
-
-    if (false === callback(rootNode)) {
-      return false
-    }
-
-    if (rootNode.hasChildNodes()) {
-      const nodes = rootNode.childNodes
-      for (let i = 0, l = nodes.length; i < l; ++i) {
-        if (false === eachNode(nodes[i], callback)) {
-          return
-        }
-      }
-    }
-  }
-  */
-
-  /*
    * Get the data for the given detail / face
    * 
    * @param string xmlStr, the current cube xml data
@@ -288,16 +262,16 @@ if ($password !== PHP_STR) {
 
     switch (detail) {
       case "swap":
-        re = new RegExp("detail%20face%3D%22swap%22.+/country", "igsu");
+        re = new RegExp("detail1%20face%3D%22swap%22.+/detail1", "igsu");
         break;
       case "contacts":
-        re = new RegExp("detail%20face%3D%22contacts%22.+/email", "igsu");
+        re = new RegExp("detail2%20face%3D%22contacts%22.+/detail2", "igsu");
         break;
       case "other info":
-        re = new RegExp("detail%20face%3D%22other%20info%22.+/guid", "igsu");
+        re = new RegExp("detail3%20face%3D%22other%20info%22.+/detail3", "igsu");
         break;
       case "password":
-        re = new RegExp("detail%20face%3D%22password%22.+/password", "igsu");
+        re = new RegExp("detail4%20face%3D%22password%22.+/detail4", "igsu");
         break;
     }        
     s = re.exec(xmlStr);
@@ -306,12 +280,26 @@ if ($password !== PHP_STR) {
       return ret;
     }
     xmlStr = s[0];
-    xmlStr = "<"+xmlStr+"></detail>";
+    //xmlStr = "<"+xmlStr+"></detail>";
+    xmlStr = "<"+xmlStr+">";
     xmlStr = unescape(xmlStr);
     //alert(xmlStr);
     const parser = new DOMParser();
     const doc = parser.parseFromString(xmlStr, "text/xml");
-    x = doc.getElementsByTagName("detail");
+    switch (detail) {
+      case "swap":
+        x = doc.getElementsByTagName("detail1");
+        break;
+      case "contacts":
+        x = doc.getElementsByTagName("detail2");
+        break;
+      case "other info":
+        x = doc.getElementsByTagName("detail3");
+        break;
+      case "password":
+        x = doc.getElementsByTagName("detail4");
+        break;
+    }        
     if (x.length===0) {
       ret = "Error! #2";
       return ret;
@@ -319,15 +307,7 @@ if ($password !== PHP_STR) {
     ret += "<div style='padding:10px;'>";
     for (i = 0; i < x[0].childNodes.length; i++) {
       if (x[0].childNodes[i].nodeType === 1) {
-        if (x[0].childNodes[i].getAttributeNode("type")) {
-          mytype = x[0].childNodes[i].getAttributeNode("type");
-          if (mytype.value==="pic") {
-            ret += "<div style='float:left;width:35%;text-align:right;height:32px;vertical-align:middle;padding-top:3px;font-weight:900;white-space:nowrap;'>" + x[0].childNodes[i].nodeName + "&nbsp;&nbsp;</div><div style='float:right;width:65%;height:32px;'>" + "<input type='text' id='cube-detail-" + x[0].childNodes[i].nodeName + "' value='" + x[0].childNodes[i].textContent + "' placeholder='https://'  onkeyup='storePicData(this)'></div>";
-          } else {
-            ret += "<div style='float:left;width:35%;text-align:right;height:32px;vertical-align:middle;padding-top:3px;font-weight:900;white-space:nowrap;'>" + x[0].childNodes[i].nodeName + "&nbsp;&nbsp;</div><div style='float:right;width:65%;height:32px;'>" + "<input type='text' id='cube-detail-" + x[0].childNodes[i].nodeName + "' value='" + x[0].childNodes[i].textContent + "' onkeyup='storeData(this)'></div>";
-          }  
-        } else {  
-        
+
           <?PHP if ($password != PHP_STR): ?>
           saveOnKeyUp = "onkeyup='storeData(this)'";
           <?PHP else: ?>
@@ -346,14 +326,9 @@ if ($password !== PHP_STR) {
             <?PHP if ($password != PHP_STR): ?>
               ret += "<div style='float:left;width:35%;text-align:right;height:32px;vertical-align:middle;padding-top:3px;font-weight:900;white-space:nowrap;'>" + x[0].childNodes[i].nodeName + "&nbsp;&nbsp;</div><div style='float:right;width:65%;height:32px;'>" + "<input type='text' id='cube-detail-" + x[0].childNodes[i].nodeName + "' value='" + x[0].childNodes[i].textContent + "'  " + saveOnKeyUp + " style='color:green' readonly></div>";
             <?PHP endif; ?>
-          } else if (x[0].childNodes[i].nodeName === "city") {
-            ret += "<div style='float:left;width:35%;text-align:right;height:32px;vertical-align:middle;padding-top:3px;font-weight:900;white-space:nowrap;'>" + x[0].childNodes[i].nodeName + "&nbsp;&nbsp;</div><div style='float:right;width:65%;height:32px;'>" + "<input type='text' id='cube-detail-" + x[0].childNodes[i].nodeName + "' value='" + x[0].childNodes[i].textContent + "'  " + saveOnKeyUp + "></div>";
-          } else if (x[0].childNodes[i].nodeName === "country") {
-            ret += "<div style='float:left;width:35%;text-align:right;height:32px;vertical-align:middle;padding-top:3px;font-weight:900;white-space:nowrap;'>" + x[0].childNodes[i].nodeName + "&nbsp;&nbsp;</div><div style='float:right;width:65%;height:32px;'>" + "<input type='text' id='cube-detail-" + x[0].childNodes[i].nodeName + "' value='" + x[0].childNodes[i].textContent + "'  " + saveOnKeyUp + "></div>";
           } else {
             ret += "<div style='float:left;width:35%;text-align:right;height:32px;vertical-align:middle;padding-top:3px;font-weight:900;white-space:nowrap;'>" + x[0].childNodes[i].nodeName + "&nbsp;&nbsp;</div><div style='float:right;width:65%;height:32px;'>" + "<input type='text' id='cube-detail-" + x[0].childNodes[i].nodeName + "' value='" + x[0].childNodes[i].textContent + "'  " + saveOnKeyUp + "></div>";  
           }  
-        }  
       }  
     }
     //if ((detail==="pictures") || (detail==="menu")) {
@@ -396,35 +371,7 @@ if ($password !== PHP_STR) {
     //alert("<" + nodeName + ">" + lineNewVal + "</" + nodeName + ">");
     //re = "/(\<" + nodeName + "\>).*(\<\/" + nodeName + "\>)/gs";
 
-    switch (nodeName) {
-      case "name":
-        re = /(\<name>).*(\<\/name>)/gs;
-        break;
-      case "description":
-        re = /(\<description>).*(\<\/description>)/gs;
-        break;      
-      case "value":
-        re = /(\<value>).*(\<\/value>)/gs;
-        break;
-      case "city":
-        re = /(\<city>).*(\<\/city>)/gs;
-        break;
-      case "country":
-        re = /(\<country>).*(\<\/country>)/gs;
-        break;
-      case "contact":
-        re = /(\<contact>).*(\<\/contact>)/gs;
-        break;
-      case "tel":
-        re = /(\<tel>).*(\<\/tel>)/gs;
-        break;
-      case "cell":
-        re = /(\<cell>).*(\<\/cell>)/gs;
-        break;
-      case "email":
-        re = /(\<email>).*(\<\/email>)/gs;
-        break;
-    }  
+    re = new RegExp('(\<'+nodeName+'>).*(\<\/'+nodeName+'>)','gs');
 
     xmlStr = xmlStr.replace(re, "$1" + lineNewVal + "$2");
     //xmlStr = xmlStr.replace("<" + nodeName + ">" + lineOldVal + "</" + nodeName + ">", "<" + nodeName + ">" + lineNewVal + "</" + nodeName + ">");
@@ -599,7 +546,14 @@ if ($password !== PHP_STR) {
    $(".header").show();
 
    //fetchDataIntervalId = setInterval("_fetchData()", 2000);
+   
+   hidePassword();
+   
  }			
+
+ function hidePassword() {
+   $("#passworddisplay").css("visibility","hidden");
+ }  
 
  /*
   * call to startApp
@@ -662,7 +616,7 @@ if ($password !== PHP_STR) {
    //Splash
    $("#HCsplash").show();	
    $("#vplayer").get(0).play();	
-
+   
  }, true);
 
 
@@ -696,7 +650,7 @@ if ($password !== PHP_STR) {
 <body>
 
      <div id="HCsplash" style="padding-top: 40px; text-align:center;color:#d4b0dc;font-family:'Rampart One';display:none;">
-         <div id="myh1" style="position:relative; top:80px;"><H1>MacSwap</H1></div><br><br>
+         <div id="myh1" style="position:relative; top:80px;"><H1><?PHP echo(APP_NAME);?></H1></div><br><br>
          <video id="vplayer" loop="1">
             <source src="../res/macswap.mp4" type="video/mp4">
          </video>
@@ -706,7 +660,7 @@ if ($password !== PHP_STR) {
       <form id="frmHC" method="POST" action="/" target="_self" enctype="multipart/form-data">
       
           <div class="header" style="margin-top:18px; display:none;">
-              &nbsp;&nbsp;<a href="http://macswap.5mode.com" target="_self" style="color:#d4b0dc; text-decoration: none;"><img src="/res/1burger_1.png" style="width:25px;">&nbsp;MacSwap</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/par7133/MacSwap" style="color:#d4b0dc;"><span style="color:#d4b0dc;">on</span> github</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:my25mb@aol.com" style="color:#d4b0dc;"><span style="color:#d4b0dc;">for</span> feedback</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:+39-331-4029415" style="font-size:13px;background-color:#15c60b;border:2px solid #15c60b;color:#000000;height:27px;text-decoration:none;">&nbsp;&nbsp;get support&nbsp;&nbsp;</a>
+              &nbsp;&nbsp;<a href="http://macswap.org" target="_self" style="color:#d4b0dc; text-decoration: none;"><img src="/res/1burger_1ori.png" style="width:25px;">&nbsp;MacSwap</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/par7133/MacSwap" style="color:#d4b0dc;"><span style="color:#d4b0dc;">on</span> github</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:info@macswap.org" style="color:#d4b0dc;"><span style="color:#d4b0dc;">for</span> feedback</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:+39-331-4029415" style="font-size:13px;background-color:#15c60b;border:2px solid #15c60b;color:#000000;height:27px;text-decoration:none;">&nbsp;&nbsp;get support&nbsp;&nbsp;</a>
          </div>
         
           <div id="debugdisplay" style="float:left;position:absolute;top:680px;left:450px;width:255px;display:none;">
@@ -755,7 +709,7 @@ if ($password !== PHP_STR) {
            <span id="face3" target="" onclick="openDetail(this)" onmouseover="zoomviewOver()" style="position:relative;top:+160px;left:+240px;background:transparent;border:0px;font-size:24px;color:#44ff00;width:450px;height:80px;margin:auto;text-align:left;font-family:'Bungee Hairline';font-weight:900;transform: rotate(0deg); white-space:nowrap;cursor:pointer; transform: rotate(+63deg);"></span><br>
          </div>
 
-         <div id="datadetail" style="float:right;background:#0d0d0d;border-left:1px solid white;width:380px;height:900px;display:none;color:#44ff00;" onmouseover="zoomviewOver()">
+         <div id="datadetail" style="float:right;background:#0d0d0d;border-left:1px solid white;width:380px;height:750px;display:none;color:#44ff00;" onmouseover="zoomviewOver()">
            <span id="detailtitle" style="color:#bd006e;font-size:20px;font-weight:900;"></span><br><br>
            <span id="detaildata"></span>
          </div>
