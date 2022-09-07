@@ -72,7 +72,7 @@ body {
   background: #ffedf0; 
   opacity: 0.1;
   color:white; 
-  font-family: Sans;
+  font-family: Arial,Sans,Verdana;
   font-size: 12px; 
   text-align: center; 
   z-index: 99990;
@@ -88,7 +88,7 @@ body {
   padding: 7px; 
   opacity: 1.0;
   color:black; 
-  font-family: Sans;
+  font-family: Arial,Sans,Verdana;
   font-size: 12px; 
   font-weight: 400;
   text-align: right; 
