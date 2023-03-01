@@ -31,7 +31,8 @@ header("Content-type: text/xml");
 //
 // PARAMETER VALIDATION
 //
-$filename = filter_input(INPUT_GET, "f");
+$filename = filter_input(INPUT_GET, "f")??"";
+$filename = strip_tags($filename);
 
 if (preg_match("/burger\d\d\d\-o\-\d\d\d/", $filename)) {
   $filename = $filename . ".xml";
