@@ -29,7 +29,8 @@
 //
 // PARAMETER VALIDATION
 //
-$filename = filter_input(INPUT_POST, "f");
+$filename = filter_input(INPUT_POST, "f")??"";
+$filename = strip_tags($filename);
 
 if (preg_match("/burger\d\d\d\-o\-\d\d\d/", $filename)) {
   $filename = $filename . ".xml";
@@ -43,7 +44,8 @@ $filepath = APP_DATA_PATH . PHP_SLASH . $filename;
 
 //chmod(APP_DATA_PATH . PHP_SLASH . $filename, 0777);
 
-$xmlStr = filter_input(INPUT_POST, "xml");
+$xmlStr = filter_input(INPUT_POST, "xml")??"";
+$xmlStr = strip_tags($xmlStr);
 
 file_put_contents($filepath, $xmlStr);
 
