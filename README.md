@@ -21,9 +21,10 @@ As you are going to run MacSwap in the PHP process context, using a limited web 
 </ol>
 
 <b>Attention:</b> version 1.1.5 > is not retrocompatible.  
-
-Hope you can enjoy it and let us know about any feedback: <a href="mailto:posta@elettronica.lol" style="color:#e6d236;">posta@elettronica.lol</a>
 	   
 ###Screenshots:
 
  ![MacSwap in action](/Public/res/Screenshot1.jpg)<br>
+
+Feedback: <a href="mailto:posta@elettronica.lol" style="color:#e6d236;">posta@elettronica.lol</a>
+ 
